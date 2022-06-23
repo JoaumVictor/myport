@@ -1,0 +1,53 @@
+// ========================= SASS PADRÃO =========================
+$dark-1: #2e3440;
+$dark-2: #3b4252;
+$dark-3: #434c5e;
+$dark-4: #4c566a;
+$light-1: #d8dee9;
+$light-2: #e5e9f0;
+$light-3: #eceff4;
+$light-4: #8fbcbb;
+$dark-glass: rgba(255, 255, 255, 0.3);
+$light-glass: rgba(3, 3, 3, 0.5);
+$green-1: rgb(69, 232, 69);
+$green-2: rgb(18, 173, 51);
+
+@mixin disp($a, $x, $y, $z) {
+  display: flex;
+  align-items: $a;
+  justify-content: $x;
+  flex-flow: $y $z;
+}
+@mixin glass($theme, $shadow) {
+  background: $theme;
+  box-shadow: 0 8px 32px 0 $shadow;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+@mixin focus() {
+  transform: translateY(-1px);
+  font-weight: 600;
+}
+.darkBox {
+  background-color: $dark-1;
+  transition: 0.5s;
+}
+.lightBox {
+  background-color: $light-1;
+  transition: 0.5s;
+}
+.darkGlass {
+  @include glass($light-glass, $dark-3);
+}
+.lightGlass {
+  @include glass($dark-glass, $dark-1);
+}
+// ========================= SASS PADRÃO =========================
+
+.introduction {
+  @include disp(start, center, column, nowrap);
+  padding: 0 10%;
+  font-size: 16px;
+  color: white;
+  height: 100vh;
+}
